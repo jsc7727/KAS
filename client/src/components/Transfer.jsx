@@ -30,7 +30,7 @@ const Transfer = () => {
     return <div style={{
         margin: "30px", padding: "30px", border: '1px solid black', borderRadius: "30px"
     }}>
-        <h3>getBalance</h3>
+        <h3>Transfer</h3>
         <div>
             {`amount : `}
             <input onChange={e => setAmount(e.target.value)} value={amount} />
@@ -49,7 +49,7 @@ const Transfer = () => {
         </div>
         <div>{`beforeBalance : ${beforeBalance}`}</div>
         <div>{`afterBalance : ${afterBalance}`}</div>
-        <button onClick={onClickHandler}>코인</button>
+        <button onClick={onClickHandler}>전송</button>
         <div>생성된 블럭 해시값 : {blockHash}</div>
     </div>
 }

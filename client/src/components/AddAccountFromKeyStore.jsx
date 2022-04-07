@@ -5,7 +5,7 @@ const AddAccountFromKeyStore = () => {
     const [address, setAddress] = useState("");
     const [privateKey, setPrivateKey] = useState("");
     const [error, setError] = useState("");
-    const onChangeImg = async (e) => {
+    const onChangeFileHandler = async (e) => {
         e.preventDefault();
         if (e.target.files) {
             const uploadFile = e.target.files[0]
@@ -39,10 +39,10 @@ const AddAccountFromKeyStore = () => {
                 {`password : `}
                 <input type="password" onChange={e => setPassword(e.target.value)} value={password} />
             </div>
-            <input type="file" id="profile-upload" accept="application/json" onChange={onChangeImg} />
+            <input type="file" id="profile-upload" accept="application/json" onChange={onChangeFileHandler} />
         </form>
         <div>{`address : ${address}`}</div>
-        <div>{`privateKey : ${privateKey}`}</div>
+        <div>{`privateKey.slice(50) : ${privateKey.slice(50)}`}</div>
         <div>{`error : ${error}`}</div>
     </div>
 }

@@ -31,9 +31,10 @@ router.post('/addAccountFromKeyStore', upload.single('keyStore'), async (req, re
     const { body: { password = "" } = {} } = req;
     if (filename === "" || password === "") throw "인자부족";
     const keystore = fs.readFileSync(`uploads/${filename}`, 'utf8');
+    console.log(keystore)
+    console.log(req.file)
     const keyring = await caver.wallet.keyring.decrypt(keystore, password);
-    const addKeyringResult = await caver.wallet.add(keyring)
-    console.log("addKeyringResult", addKeyringResult)
+    await caver.wallet.add(keyring)
     return res.status(200).json(caver.wallet.getKeyring(keyring.address));
   }
   catch (error) {
